@@ -1,4 +1,4 @@
-x = int(input())
+x = 180
 a = int(input())
 b = int(input())
 c = int(input())
