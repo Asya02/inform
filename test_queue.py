@@ -1,11 +1,11 @@
 import unittest
-from myqueue import Queue
+from queue import Queue
 
 
 class TestStringMethods(unittest.TestCase):
     def setUp(self):
         self.test_queue = Queue()
-        
+
     def test_enqueue(self):
         self.assertEqual(self.test_queue.enqueue(1), 1)
         self.assertEqual(self.test_queue.size_function(), 1)
@@ -32,15 +32,14 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.test_queue.first(), 1)
         self.assertEqual(self.test_queue.size_function(), 1)
 
-    def test_clear(self):      
+    def test_clear(self):
         self.assertEqual(self.test_queue.clear(), None)
         self.assertEqual(self.test_queue.size_function(), 0)
 
     def test_clear2(self):
-        self.test_queue.enqueue(1)  
+        self.test_queue.enqueue(1)
         self.assertEqual(self.test_queue.clear(), None)
         self.assertEqual(self.test_queue.size_function(), 0)
-
 
 
 if __name__ == '__main__':
