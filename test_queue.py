@@ -1,5 +1,5 @@
 import unittest
-from queue import Queue
+from my_queue import Queue
 
 
 class TestStringMethods(unittest.TestCase):
