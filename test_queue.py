@@ -1,5 +1,5 @@
 import unittest
-from my_queue import Queue
+from queue import Queue
 
 
 class TestStringMethods(unittest.TestCase):
@@ -23,14 +23,25 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.test_queue.dequeue(), 3)
         self.assertEqual(self.test_queue.size_function(), 0)
 
-    def test_first(self):
-        self.assertEqual(self.test_queue.first(), None)
+    def test_get_front(self):
+        self.assertEqual(self.test_queue.get_front(), None)
         self.assertEqual(self.test_queue.size_function(), 0)
 
-    def test_first2(self):
+    def test_get_front2(self):
         self.test_queue.enqueue(1)
-        self.assertEqual(self.test_queue.first(), 1)
-        self.assertEqual(self.test_queue.size_function(), 1)
+        self.test_queue.enqueue(2)
+        self.test_queue.enqueue(3)
+        self.assertEqual(self.test_queue.get_front(), 1)
+
+    def test_get_back(self):
+        self.assertEqual(self.test_queue.get_back(), None)
+        self.assertEqual(self.test_queue.size_function(), 0)
+
+    def test_get_back2(self):
+        self.test_queue.enqueue(1)
+        self.test_queue.enqueue(2)
+        self.test_queue.enqueue(3)
+        self.assertEqual(self.test_queue.get_back(), 3)
 
     def test_clear(self):
         self.assertEqual(self.test_queue.clear(), None)
