@@ -2,7 +2,6 @@ class Element:
     def __init__(self, data):
         self.data = data
         self.next = None
-        self.prev = None
 
 
 class Queue:
@@ -20,25 +19,19 @@ class Queue:
             self.back = self.front
         else:
             self.back.next = element
-            self.back.next.prev = self.back
             self.back = self.back.next
-
         return self.front.data
 
 
 # Удаление первого элемента из очереди
     def dequeue(self):
-
-        if self.size == 0:
+        if self.front is None:
+            self.back = None
             return None
         else:
             temp = self.front.data
             self.size -= 1
             self.front = self.front.next
-            if self.front is not None:
-                self.front.prev = None
-            else:
-                self.clear()
             return temp
 
 
