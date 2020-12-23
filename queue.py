@@ -26,21 +26,28 @@ class Queue:
 # Удаление первого элемента из очереди
     def dequeue(self):
         if self.front is None:
-            self.back = None
             return None
-        else:
-            temp = self.front.data
-            self.size -= 1
-            self.front = self.front.next
-            return temp
+        temp = self.front.data
+        self.size -= 1
+        self.front = self.front.next
+        if self.front is None:
+            self.back = None
+        return temp
 
 
-# Возврат верхнего элемента в очередь
-    def first(self):
+# Возврат верхнего элемента
+    def get_front(self):
         if self.size == 0:
             return None
         else:
             return self.front.data
+
+# Возврат нижнего элемента
+    def get_back(self):
+        if self.size == 0:
+            return None
+        else:
+            return self.back.data
 
 # Размер очереди
     def size_function(self):
